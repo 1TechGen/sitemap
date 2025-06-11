@@ -221,7 +221,8 @@
 
   <main>
     <!-- Home Page -->
-    <div id="home" class="page">
+    <!-- *** FIX 1: Added 'active' class to prevent blank screen on load *** -->
+    <div id="home" class="page active">
       <section class="bg-gray-900 text-white py-20">
         <div class="container mx-auto text-center px-4">
           <h2 class="text-4xl font-bold mb-4">Transform Your Workflow with AI</h2>
@@ -782,7 +783,7 @@
     </div>
     <div id="termsOfServicePage" class="page">
       <div class="container mx-auto px-4 py-16 prose lg:prose-xl">
-        <h2 class="text-3xl font-bold mb-6 text-center">Terms of Service</h2><p class="mb-4 text-sm text-gray-600 text-center">Last updated: May 30, 2025</p><p>Welcome to Tech_Gen SaaS (the "Service"). By accessing or using our website and services, you agree to comply with and be bound by the following Terms and Conditions. If you do not agree, please refrain from using our Service.</p><h2>1. Acceptance of Terms</h2><p>By using our Service, you confirm that you are at least 18 years old or have legal guardian consent. You also agree to provide accurate and complete information when registering.</p><h2>2. Service Description</h2><p>Tech_Gen SaaS provides cloud-based AI tools including image generation, document translation, and text summarization. We reserve the right to modify or discontinue any part of the Service without prior notice.</p><h2>3. User Responsibilities</h2><p>You agree not to misuse the Service (e.g., hacking, spamming, or distributing malware).</p><p>You are responsible for maintaining the confidentiality of your account credentials.</p><p>Any unauthorized use of your account must be reported immediately.</p><h2>4. Payments & Subscriptions</h2><p>Fees for the Service are as listed on our pricing page.</p><p>Payments are non-refundable unless otherwise stated.</p><p>We may change pricing with prior notice.</p><h2>5. Intellectual Property</h2><p>All content, trademarks, and software on the Service are owned by Tech_Gen or its licensors. Unauthorized use, reproduction, or distribution is prohibited.</p><h2>6. Privacy Policy</h2><p>Your use of the Service is also governed by our <a href="#privacyPolicyPage" onclick="showPage('privacyPolicyPage'); return false;" class="text-sky-600 hover:underline">Privacy Policy</a>.</p><h2>7. Termination</h2><p>We may suspend or terminate your access for violations of these Terms, illegal activities, or non-payment.</p><h2>8. Limitation of Liability</h2><p>Tech_Gen is not liable for any indirect, incidental, or consequential damages arising from your use of the Service.</p><h2>9. Governing Law</h2><p>These Terms shall be governed by the laws of India, without regard to conflict of law principles.</p><h2>10. Changes to Terms</h2><p>We may update these Terms periodically. Continued use after changes constitutes acceptance.</p><h3 class="text-2xl font-semibold mt-8 mb-3">Contact Us</h3><p>If you have any questions about these Terms, please contact us via the <a href="#contact" onclick="showPage('contact'); return false;" class="text-sky-600 hover:underline">Contact page</a>.</p>
+        <h2 class="text-3xl font-bold mb-6 text-center">Terms of Service</h2><p class="mb-4 text-sm text-gray-600 text-center">Last updated: May 30, 2025</p><p>Welcome to Tech_Gen SaaS (the "Service"). By accessing or using our website and services, you agree to comply with and be bound by the following Terms and Conditions. If you do not agree, please refrain from using our Service.</p><h2>1. Acceptance of Terms</h2><p>By using our Service, you confirm that you are at least 18 years old or have legal guardian consent. You also agree to provide accurate and complete information when registering.</p><h2>2. Service Description</h2><p>Tech_Gen SaaS provides cloud-based AI-tools including image generation, document translation, and text summarization. We reserve the right to modify or discontinue any part of the Service without prior notice.</p><h2>3. User Responsibilities</h2><p>You agree not to misuse the Service (e.g., hacking, spamming, or distributing malware).</p><p>You are responsible for maintaining the confidentiality of your account credentials.</p><p>Any unauthorized use of your account must be reported immediately.</p><h2>4. Payments & Subscriptions</h2><p>Fees for the Service are as listed on our pricing page.</p><p>Payments are non-refundable unless otherwise stated.</p><p>We may change pricing with prior notice.</p><h2>5. Intellectual Property</h2><p>All content, trademarks, and software on the Service are owned by Tech_Gen or its licensors. Unauthorized use, reproduction, or distribution is prohibited.</p><h2>6. Privacy Policy</h2><p>Your use of the Service is also governed by our <a href="#privacyPolicyPage" onclick="showPage('privacyPolicyPage'); return false;" class="text-sky-600 hover:underline">Privacy Policy</a>.</p><h2>7. Termination</h2><p>We may suspend or terminate your access for violations of these Terms, illegal activities, or non-payment.</p><h2>8. Limitation of Liability</h2><p>Tech_Gen is not liable for any indirect, incidental, or consequential damages arising from your use of the Service.</p><h2>9. Governing Law</h2><p>These Terms shall be governed by the laws of India, without regard to conflict of law principles.</p><h2>10. Changes to Terms</h2><p>We may update these Terms periodically. Continued use after changes constitutes acceptance.</p><h3 class="text-2xl font-semibold mt-8 mb-3">Contact Us</h3><p>If you have any questions about these Terms, please contact us via the <a href="#contact" onclick="showPage('contact'); return false;" class="text-sky-600 hover:underline">Contact page</a>.</p>
       </div>
     </div>
   </main>
@@ -1331,9 +1332,9 @@
                 }
                 errorEl.classList.remove('hidden');
             } else {
-                showAlert('Registration successful! Please log in.', 'success');
+                // *** FIX 2: Removed showPage('login') to let the auth handler work correctly ***
+                showAlert('Registration successful! Welcome.', 'success');
                 e.target.reset();
-                showPage('login');
             }
         });
 
@@ -1607,9 +1608,13 @@
             await loadCurrentUserProfile(user);
             updateAuthUI();
             resetInactivityTimer();
+
+            // This block now correctly handles the initial page load logic
             if (event === 'INITIAL_SESSION') {
                 const initialPageId = getCurrentPageIdFromUrl();
-                showPage(initialPageId, true);
+                if (initialPageId !== 'home') {
+                    showPage(initialPageId, true);
+                }
             } else if (event === 'SIGNED_IN') {
                 const intendedPage = sessionStorage.getItem('intendedPage');
                 const pendingPlanId = sessionStorage.getItem('pendingPlan');
@@ -1618,11 +1623,9 @@
                 if (pendingPlanId) {
                     initiatePayment(pendingPlanId);
                 } else {
-                    // *** FIX 1: Changed default redirect to 'home' ***
                     showPage(intendedPage || 'home');
                 }
             } else if (event === 'SIGNED_OUT') {
-                // *** FIX 2: Centralized logout logic ***
                 currentUser = null;
                 updateAuthUI();
                 showAlert('You have been signed out.', 'info');
