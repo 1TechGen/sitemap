@@ -152,6 +152,67 @@
     .hidden {
         display: none !important;
     }
+    
+    /* --- NEW STYLES FOR HERO SECTION --- */
+    .hero-section-new {
+        background-color: #000000;
+        color: white;
+        position: relative;
+        overflow: hidden; /* Contains the pseudo-elements */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+        padding: 4rem 1rem;
+    }
+
+    .hero-section-new::before,
+    .hero-section-new::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px); /* Increased blur for softer glow */
+        z-index: 1;
+        opacity: 0.5;
+    }
+
+    /* Deep Blue Glow */
+    .hero-section-new::before {
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, #003566, #001D3D, transparent 70%);
+        top: -200px;
+        left: -200px;
+    }
+
+    /* Dark Orange Glow */
+    .hero-section-new::after {
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(circle, #FF6600, #8B3500, transparent 70%);
+        bottom: -250px;
+        right: -250px;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 10; /* Ensure content is above the glows */
+        text-align: center;
+    }
+    
+    .hero-title-orange { color: #FF6A00; }
+    .hero-title-blue { color: #66CCFF; }
+
+    .waitlist-button {
+        background-color: #0D0D0D;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+    }
+    .waitlist-button:hover {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+        transform: translateY(-2px);
+    }
   </style>
 </head>
 <body class="bg-gray-50">
@@ -208,6 +269,26 @@
   <main>
     <!-- Home Page (and other non-auth content pages) -->
     <div id="home" class="page">
+        
+      <!-- NEW HERO SECTION -->
+      <div style="background: linear-gradient(135deg, #EED6C4, #E87E4E); padding: 1rem;">
+        <section class="hero-section-new rounded-lg shadow-2xl">
+            <div class="hero-content">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                    <span class="hero-title-orange">One Prompt,</span><br class="sm:hidden">
+                    <span class="hero-title-blue">One Powerful Website.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Experience the future of web creation. Describe your vision, and let our AI build a stunning, functional website in minutes.
+                </p>
+                <button class="waitlist-button text-white font-bold py-3 px-8 rounded-full text-lg" onclick="showAlert('You are on the waitlist! We will notify you soon.', 'success')">
+                    Join Waitlist
+                </button>
+            </div>
+        </section>
+      </div>
+      
+      <!-- Original Hero Section -->
       <section class="bg-blue-950 text-white py-20">
         <div class="container mx-auto text-center px-4">
           <h2 class="text-4xl font-bold mb-4">Transform Your Workflow with AI</h2>
