@@ -196,7 +196,7 @@
               </svg>
             </button>
             <div class="absolute left-0 mt-2 w-64 bg-[#1A1A1A] rounded-md shadow-lg py-2 z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-700">
-              <button onclick="showPage('ai-generator')" class="block w-full text-left px-4 py-2 text-gray-200 hover:bg-[#6C00FF]/30">AI Voice Generator</button>
+              <button onclick="showPage('ai-generator')" class="block w-full text-left px-4 py-2 text-gray-200 hover:bg-[#6C00FF]/30">AI Image Generator</button>
               <button onclick="showPage('translate')" class="block w-full text-left px-4 py-2 text-gray-200 hover:bg-[#6C00FF]/30">Translate Documents</button>
               <button onclick="showPage('summarization')" class="block w-full text-left px-4 py-2 text-gray-200 hover:bg-[#6C00FF]/30">Text Summarization</button>
             </div>
@@ -226,7 +226,7 @@
       <section class="gradient-bg text-white py-20">
         <div class="container mx-auto text-center px-4">
           <h2 class="text-4xl font-bold mb-4">Transform Your Workflow with AI</h2>
-          <p class="text-lg mb-6 max-w-2xl mx-auto text-gray-200">Our AI-powered SaaS platform helps businesses streamline operations and boost productivity with tools for voice generation, document translation, and text summarization.</p>
+          <p class="text-lg mb-6 max-w-2xl mx-auto text-gray-200">Our AI-powered SaaS platform helps businesses streamline operations and boost productivity with tools for image generation, document translation, and text summarization.</p>
           </div>
       </section>
       
@@ -236,8 +236,8 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="p-6 bg-[#1A1A1A]/70 rounded-lg shadow-md border border-gray-800">
-            <h4 class="text-xl font-semibold mb-2 text-white">AI Voice Generator</h4>
-            <p class="mb-4 text-gray-300">Convert text into high-quality, natural-sounding speech instantly. Perfect for video narration, accessibility, and content creation.</p>
+            <h4 class="text-xl font-semibold mb-2 text-white">AI Image Generator</h4>
+            <p class="mb-4 text-gray-300">Create stunning, unique visuals from text prompts instantly with our advanced AI image generator. Perfect for artists, marketers, and content creators.</p>
             <button onclick="showPage('ai-generator')" class="text-[#A800FF] font-medium hover:text-[#D480FF] transition-colors">Try it now →</button>
           </div>
           <div class="p-6 bg-[#1A1A1A]/70 rounded-lg shadow-md border border-gray-800">
@@ -363,9 +363,9 @@
                 <div class="bg-[#1A1A1A]/70 rounded-lg shadow-lg overflow-hidden flex flex-col border border-gray-800">
                     <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=1740&auto=format&fit=crop" alt="AI generated art of a futuristic city" class="w-full h-48 object-cover">
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-semibold text-white mb-2">Give Your Content a Voice with AI</h3>
+                        <h3 class="text-xl font-semibold text-white mb-2">Unlock Creativity with Our AI Image Generator</h3>
                         <p class="text-gray-300 mb-4 flex-grow">
-                            Turn your written content into engaging audio with just a simple text prompt. Learn how our AI empowers you to create natural-sounding voiceovers effortlessly—no recording studio needed.
+                            Turn your ideas into stunning visuals with just a simple text prompt. Learn how our AI empowers you to create unique, high-resolution images effortlessly—no design skills needed.
                         </p>
                         <button class="text-[#A800FF] font-medium hover:text-[#D480FF] self-start mt-auto" onclick="showAlert('Full blog post coming soon!', 'info')">Read More →</button>
                     </div>
@@ -556,62 +556,75 @@
         </div>
     </div> <!-- End auth-pages-wrapper -->
     
-    <!-- MODIFIED AI Tool Page -->
+    <!-- AI Tool Pages (and other content pages that don't need full-screen centering) -->
     <div id="ai-generator" class="page">
       <header class="gradient-bg text-white py-8">
         <div class="container mx-auto px-4 text-center">
-          <h1 class="text-3xl font-bold">AI Voice Generator</h1>
-          <p class="mt-2 text-gray-200">Transform your text into lifelike speech with Tech_Gen</p>
+          <h1 class="text-3xl font-bold">AI Image Generator</h1>
+          <p class="mt-2 text-gray-200">Transform your ideas into stunning visuals with Tech_Gen</p>
         </div>
       </header>
 
-       <div class="adsense-placeholder">AI Voice Gen - Ad Unit Placeholder (e.g., Responsive)</div>
+       <div class="adsense-placeholder">AI Image Gen - Ad Unit Placeholder (e.g., Responsive)</div>
 
         <section class="mb-8 container mx-auto px-4 py-8"> 
           <h2 class="text-2xl font-semibold text-white mb-4 text-center">Try the Generator</h2>
           <div class="bg-[#1A1A1A]/70 p-4 rounded-lg border border-gray-800 max-w-3xl mx-auto">
-            <p class="text-gray-400 mb-3 text-sm">Enter the text you want to convert to speech.</p>
-            <textarea id="ttsPrompt" placeholder="e.g., 'Hello, welcome to Tech Gen, your partner in AI-powered productivity.'" 
-                     class="w-full p-2 text-sm bg-[#0D0D0D] border border-gray-700 rounded focus:ring-2 focus:ring-[#A800FF] text-white h-28"></textarea>
-            
-            <div class="mt-3">
-                <label class="block text-gray-400 text-xs mb-1">Voice</label>
-                <select id="ttsVoice" class="w-full text-sm bg-[#0D0D0D] border border-gray-700 rounded focus:ring-2 focus:ring-[#A800FF] text-white p-2">
-                    <option value="nova" selected>Nova (Female, Clear)</option>
-                    <option value="alloy">Alloy (Male, Versatile)</option>
-                    <option value="echo">Echo (Male, Engaging)</option>
-                    <option value="fable">Fable (Male, Storyteller)</option>
-                    <option value="onyx">Onyx (Male, Deep & Resonant)</option>
-                    <option value="shimmer">Shimmer (Female, Rich)</option>
-                </select>
-            </div>
-            
-            <button id="generateAudioBtn" class="mt-4 bg-[#A800FF] text-white text-sm font-medium px-4 py-2 rounded hover-glow flex items-center justify-center min-w-[140px] w-full sm:w-auto">
-                <span id="generateBtnText">Generate Audio</span>
+            <p class="text-gray-400 mb-3 text-sm">Describe the image you want to create.</p>
+            <div class="flex flex-col sm:flex-row gap-2">
+              <input type="text" id="imagePrompt" placeholder="e.g., 'A majestic lion in a surreal landscape, digital art'" 
+                     class="flex-1 p-2 text-sm bg-[#0D0D0D] border border-gray-700 rounded focus:ring-2 focus:ring-[#A800FF] text-white">
+              <button id="generateImageBtn" class="bg-[#A800FF] text-white text-sm font-medium px-4 py-2 rounded hover-glow flex items-center justify-center min-w-[120px]">
+                <span id="generateBtnText">Generate</span>
                 <span id="generateSpinner" class="loading hidden ml-2"></span>
-            </button>
-            
-            <div class="mt-4 text-center">
-              <div id="audioPlaceholder" class="bg-[#0D0D0D] border border-gray-700 rounded flex items-center justify-center h-24">
-                <p id="audioPlaceholderText" class="text-gray-400 text-sm">Generated audio will appear here</p>
+              </button>
+            </div>
+            <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div>
+                <label class="block text-gray-400 text-xs mb-1">Aspect Ratio</label>
+                <select id="imageAspectRatio" class="w-full text-sm bg-[#0D0D0D] border border-gray-700 rounded focus:ring-2 focus:ring-[#A800FF] text-white p-1">
+                  <option value="square" selected>Square (1:1)</option>
+                  <option value="portrait">Portrait (9:16)</option>
+                  <option value="landscape">Landscape (16:9)</option>
+                </select>
               </div>
-              <div id="audioResultContainer" class="hidden mt-4 text-center">
-                <audio id="generatedAudio" controls class="w-full mx-auto"></audio>
-                <button id="downloadAudioBtn" class="mt-4 bg-[#D480FF] text-black text-sm font-medium px-4 py-2 rounded hover-glow">
-                  Download Audio (MP3)
+              <div>
+                <label class="block text-gray-400 text-xs mb-1">Style (Optional)</label>
+                 <select id="imageStyle" class="w-full text-sm bg-[#0D0D0D] border border-gray-700 rounded focus:ring-2 focus:ring-[#A800FF] text-white p-1">
+                    <option value="">None</option>
+                    <option value="photorealistic">Photorealistic</option>
+                    <option value="digital-art">Digital Art</option>
+                    <option value="anime">Anime</option>
+                    <option value="pixel-art">Pixel Art</option>
+                    <option value="comic-book">Comic Book</option>
+                    <option value="fantasy-art">Fantasy Art</option>
+                    <option value="isometric">Isometric</option>
+                    <option value="line-art">Line Art</option>
+                    <option value="origami">Origami</option>
+                </select>
+              </div>
+            </div>
+            <div class="mt-4 text-center">
+              <div id="imagePlaceholder" class="bg-[#0D0D0D] border border-gray-700 rounded flex items-center justify-center h-64">
+                <p id="imagePlaceholderText" class="text-gray-400 text-sm">Image will appear here</p>
+              </div>
+              <div id="imageResultContainer" class="hidden">
+                <img id="generatedImage" src="" alt="Generated image" class="rounded mx-auto border border-gray-700 max-w-full h-64 object-contain">
+                <button id="downloadImageBtn" class="mt-2 bg-[#D480FF] text-black text-sm font-medium px-4 py-2 rounded hover-glow">
+                  Download Image
                 </button>
               </div>
             </div>
           </div>
         </section>
      
-        <div class="container mx-auto py-8 px-4">
-            <article class="prose lg:prose-xl mx-auto mb-8 bg-[#1A1A1A]/70 border border-gray-800 p-6 rounded-lg shadow-lg">
-                <h2>Give Your Content a Voice with AI</h2>
-                <p>Our AI Voice Generator, powered by advanced text-to-speech models, allows you to turn written text into high-quality, natural-sounding audio. Whether you're creating video narrations, developing accessible content for users, or producing podcasts, this tool is for you.</p>
-                <p><strong>How it works:</strong> Simply type or paste the text you want to convert. Choose from a selection of distinct voices to match the tone you need. Our system will then process your request and generate a clear audio file based on your input. It's perfect for content creators, marketers, educators, and developers.</p>
-            </article>
-        </div>
+    <div class="container mx-auto py-8 px-4">
+        <article class="prose lg:prose-xl mx-auto mb-8 bg-[#1A1A1A]/70 border border-gray-800 p-6 rounded-lg shadow-lg">
+            <h2>Unleash Your Creativity with AI Image Generation</h2>
+            <p>Our AI Image Generator, powered by advanced models via Pollinations API, allows you to turn simple text prompts into breathtaking visuals. Whether you're an artist looking for inspiration, a marketer needing unique ad creatives, or just curious about the power of AI, this tool is for you.</p>
+            <p><strong>How it works:</strong> Simply type a description of the image you envision. Be as detailed or as abstract as you like. Choose your preferred aspect ratio and an optional style to guide the AI. Our system will then process your request and generate a unique image based on your input. Explore different prompts and styles to discover endless possibilities!</p>
+          </article>
+       </div>
     </div>
     
     <div id="translate" class="page">
@@ -1009,7 +1022,7 @@
                     <p class="text-4xl font-bold text-white mb-4">₹0<span class="text-lg font-normal text-gray-400">/month</span></p>
                     <p class="text-gray-400 mb-6">Perfect for individuals starting out or trying our basic features.</p>
                     <ul class="text-gray-300 mb-8 flex-grow">
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> 50 AI Voice Generations (session limit)</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> 50 AI Image Generations (session limit)</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> 50 Text/Doc Translations (session limit)</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> 50 Text Summarizations (session limit)</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Community Support</li>
@@ -1022,7 +1035,7 @@
                     <p class="text-4xl font-bold text-white mb-4" id="proPlanPriceDisplay">₹499<span class="text-lg font-normal text-gray-400">/month</span></p>
                     <p class="text-gray-400 mb-6">Ideal for professionals and small teams needing more power.</p>
                     <ul class="text-gray-300 mb-8 flex-grow">
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Unlimited AI Voice Generations</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Unlimited AI Image Generations</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Unlimited Text & Document Translation</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Unlimited Text Summarization</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Priority Email Support</li>
@@ -1035,7 +1048,7 @@
                      <p class="text-4xl font-bold text-white mb-4" id="businessPlanPriceDisplay">₹1499<span class="text-lg font-normal text-gray-400">/month</span></p>
                     <p class="text-gray-400 mb-6">For larger teams and businesses requiring extensive usage and support.</p>
                     <ul class="text-gray-300 mb-8 flex-grow">
-                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Unlimited AI Voice Generations</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Unlimited AI Image Generations</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Unlimited Text & Document Translation</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Unlimited Summarization</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Dedicated 24/7 Support</li>
@@ -1273,9 +1286,10 @@
     const GEMINI_API_KEY = "AIzaSyBkqwiILRTyfMCfzulzRR1oY8lowy63WOs"; 
     const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
     
-    // NEW Pollination AI Config
-    const POLLINATION_API_URL = "https://text.pollinations.ai/openai";
-    const POLLINATION_API_TOKEN = "VlCxND9e-9_HGY3c"; // As provided in the request
+    // <<< CHANGE START: Replaced Monster API with Pollinations API >>>
+    const POLLINATIONS_API_KEY = "VlCxND9e-9_HGY3c";
+    const POLLINATIONS_API_URL = "https://text.pollinations.ai/openai";
+    // <<< CHANGE END >>>
 
     const RAZORPAY_KEY_ID = "rzp_live_xoN2xNuHMZnCup";
 
@@ -1291,7 +1305,7 @@
     const INACTIVITY_TIMEOUT = 5 * 60 * 1000;
     const GUEST_TOTAL_USAGE_LIMIT = 10; 
     const FREE_TIER_LIMITS = { 
-        imageGen: 50, // This key is now used for Voice Generation
+        imageGen: 50,
         translate: 50,
         summarize: 50
     };
@@ -1304,12 +1318,12 @@
     };
     
     const pageMetaInfo = {
-        home: { title: "Tech_Gen - AI SaaS Platform | Home", description: "Boost your workflow with AI-powered voice generation, document translation, and text summarization tools from TECH_GEN." },
+        home: { title: "Tech_Gen - AI SaaS Platform | Home", description: "Boost your workflow with AI-powered image generation, document translation, and text summarization tools from TECH_GEN." },
         login: { title: "Login - Tech_Gen", description: "Access your Tech_Gen account to use our suite of AI tools." },
-        register: { title: "Register - Tech_Gen", description: "Create an account with Tech_Gen to start using powerful AI tools for voice generation, translation, and summarization." },
+        register: { title: "Register - Tech_Gen", description: "Create an account with Tech_Gen to start using powerful AI tools for image generation, translation, and summarization." },
         account: { title: "My Account - Tech_Gen", description: "Manage your Tech_Gen profile, view your subscription status, and access your account details." },
         blog: { title: "Blog - Tech_Gen", description: "Read the latest news, tutorials, and insights on AI and productivity from the Tech_Gen team." },
-        'ai-generator': { title: "AI Voice Generator - Tech_Gen", description: "Generate high-quality, natural-sounding audio from text using our advanced AI Voice Generator." },
+        'ai-generator': { title: "AI Image Generator - Tech_Gen", description: "Generate stunning and unique images from text prompts using our advanced AI Image Generator. Perfect for creatives and marketers." },
         translate: { title: "AI Document & Text Translator - Tech_Gen", description: "Translate text snippets or entire documents (PDF, DOCX, TXT) into multiple languages with our accurate AI Translator." },
         summarization: { title: "AI Text Summarizer - Tech_Gen", description: "Quickly summarize long articles, reports, and documents with our AI Text Summarizer. Get key insights in seconds." },
         pricing: { title: "Pricing Plans - Tech_Gen", description: "Explore our flexible pricing plans for Tech_Gen tools. Find the perfect fit for your needs, from free trials to business solutions." },
@@ -1324,6 +1338,7 @@
     const authPageIds = ['login', 'register', 'forgotPassword', 'resetPassword', 'paymentPage'];
 
     // --- UI AND HELPER FUNCTIONS ---
+    // ... (omitted for brevity, no changes here) ...
     function updateMetaTags(pageId) {
         const meta = pageMetaInfo[pageId];
         document.title = meta ? meta.title : "Tech_Gen - AI Platform";
@@ -1385,14 +1400,14 @@
                     const usage = currentUser.usageCounts || { imageGen: 0, translate: 0, summarize: 0 };
                     const limits = FREE_TIER_LIMITS;
                     usageDetailsContainer.innerHTML = `
-                        <p><strong>AI Voice Generations:</strong> ${usage.imageGen} / ${limits.imageGen}</p>
+                        <p><strong>AI Image Generations:</strong> ${usage.imageGen} / ${limits.imageGen}</p>
                         <p><strong>Translations:</strong> ${usage.translate} / ${limits.translate}</p>
                         <p><strong>Text Summarizations:</strong> ${usage.summarize} / ${limits.summarize}</p>
                         <p class="text-xs text-gray-500 mt-2">Limits reset when you close your browser session.</p>
                     `;
                 } else if (currentUser.plan === 'pro' || currentUser.plan === 'business') {
                     usageDetailsContainer.innerHTML = `
-                        <p><strong>AI Voice Generations:</strong> Unlimited</p>
+                        <p><strong>AI Image Generations:</strong> Unlimited</p>
                         <p><strong>Translations:</strong> Unlimited</p>
                         <p><strong>Text Summarizations:</strong> Unlimited</p>
                     `;
@@ -1500,7 +1515,7 @@
             if (currentCount < limit) {
                 return true;
             }
-            showAlert(`You've reached your Free plan session limit of ${limit} ${featureType === 'imageGen' ? 'voice generations' : featureType.replace(/([A-Z])/g, ' $1').toLowerCase() + 's'}. Upgrade to a Pro plan for unlimited access.`, 'info');
+            showAlert(`You've reached your Free plan session limit of ${limit} ${featureType.replace(/([A-Z])/g, ' $1').toLowerCase()}s. Upgrade to a Pro plan for unlimited access.`, 'info');
             sessionStorage.setItem('intendedPage', currentPageId || 'pricing'); 
             showPage('pricing');
             return false;
@@ -1544,6 +1559,72 @@
             throw error; 
         }
     }
+    
+    // <<< CHANGE START: New function for Pollinations API >>>
+    async function generateImageWithPollinations(prompt, aspectRatio, style) {
+        if (!POLLINATIONS_API_KEY) {
+            showAlert('Pollinations API Key is not configured. Image generation will not work.', 'error');
+            throw new Error('Pollinations API Key not configured.');
+        }
+
+        // Map aspect ratio to DALL-E 3 standard sizes
+        let size = "1024x1024"; // Default to square
+        if (aspectRatio === 'portrait') size = "1024x1792";
+        if (aspectRatio === 'landscape') size = "1792x1024";
+
+        // Combine prompt and style for a richer description
+        const fullPrompt = style ? `${prompt}, in the style of ${style}` : prompt;
+
+        const payload = {
+            prompt: fullPrompt,
+            model: "dall-e-3", // Using a high-quality model as a default
+            size: size,
+            n: 1
+        };
+
+        try {
+            const response = await fetch(POLLINATIONS_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `${POLLINATIONS_API_KEY}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error("Pollinations API Error Response:", errorText);
+                try {
+                    const errorData = JSON.parse(errorText);
+                    throw new Error(errorData.error?.message || errorData.message || `API error: ${response.status}`);
+                } catch (e) {
+                    throw new Error(errorText || `API error: ${response.status}`);
+                }
+            }
+
+            const data = await response.json();
+            
+            // Check for a standard OpenAI-like response structure
+            if (data.data && data.data[0] && data.data[0].url) {
+                return data.data[0].url;
+            }
+            
+            // Fallback for other potential structures
+            if (data.output) {
+                return Array.isArray(data.output) ? data.output[0] : data.output;
+            }
+
+            console.error("Unknown response structure from Pollinations API:", data);
+            throw new Error('Could not find image URL in the API response.');
+
+        } catch (error) {
+            console.error('Error calling Pollinations API:', error);
+            throw error; // Re-throw to be caught by the caller
+        }
+    }
+    // <<< CHANGE END >>>
+
     function downloadContent(content, filename) {
         const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
         const url = URL.createObjectURL(blob);
@@ -1556,16 +1637,36 @@
         URL.revokeObjectURL(url);
         showAlert(`Downloaded ${filename}`, 'success');
     }
-    function downloadBlob(blob, filename) {
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
-        showAlert(`Downloaded ${filename}`, 'success');
+    function downloadImage(url, filename) { 
+      fetch(url, { mode: 'cors' }) 
+        .then(response => {
+          if (!response.ok) {
+            const directLink = document.createElement('a');
+            directLink.href = url;
+            directLink.download = filename;
+            document.body.appendChild(directLink);
+            directLink.click();
+            document.body.removeChild(directLink);
+            showAlert('Image download initiated (direct link).', 'info');
+            return null; 
+          }
+          return response.blob();
+        })
+        .then(blob => {
+          if (blob) { 
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob); 
+            link.download = filename;
+            document.body.appendChild(link); 
+            link.click(); 
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href); 
+            showAlert('Image downloaded successfully!', 'success');
+          }
+        })
+        .catch(error => {
+            showAlert(`Image download error: ${error.message}. Please try to save the image manually.`, 'error');
+        });
     }
     async function extractTextFromFile(file) { 
         const extension = file.name.split('.').pop().toLowerCase();
@@ -1758,7 +1859,8 @@
             if (pageIdToShow) showPage(pageIdToShow);
         });
         
-        // --- Form Event Listeners ---
+        // --- Form Event Listeners (No changes) ---
+        // ... (omitted for brevity, they are unchanged) ...
         const loginFormEl = document.getElementById('loginForm');
         if (loginFormEl) loginFormEl.addEventListener('submit', async (event) => {
             event.preventDefault(); 
@@ -1898,80 +2000,53 @@
         }
 
         // --- Tool-Specific Event Listeners ---
-        const generateAudioBtn = document.getElementById('generateAudioBtn');
-        if (generateAudioBtn) { 
-            generateAudioBtn.addEventListener('click', async function() {
-                // Use 'imageGen' key for usage tracking to minimize changes to the existing system
+        const generateImageBtn = document.getElementById('generateImageBtn');
+        if (generateImageBtn) {
+            // <<< CHANGE START: Replaced Monster API logic with Pollinations API logic >>>
+            generateImageBtn.addEventListener('click', async function() {
                 if (!canLoggedInUserUseFeature('imageGen', 'ai-generator')) return;
-
-                const prompt = document.getElementById('ttsPrompt').value.trim();
-                const voice = document.getElementById('ttsVoice').value;
-                if (!prompt) { 
-                    showAlert('Please enter text to generate audio.', 'error'); 
-                    return; 
+                
+                const prompt = document.getElementById('imagePrompt').value.trim();
+                if (!prompt) {
+                    showAlert('Please enter an image description.', 'error');
+                    return;
                 }
                 
                 this.disabled = true;
                 const spinner = document.getElementById('generateSpinner');
-                const placeholder = document.getElementById('audioPlaceholder');
-                const resultContainer = document.getElementById('audioResultContainer');
                 spinner.classList.remove('hidden');
-                placeholder.classList.remove('hidden');
-                resultContainer.classList.add('hidden');
                 pauseInactivityTimer();
 
                 try {
-                    const payload = {
-                        "model": "openai-audio",
-                        "messages": [{ "role": "user", "content": prompt }],
-                        "voice": voice,
-                        "private": false
-                    };
-                    
-                    const response = await fetch(`${POLLINATION_API_URL}?token=${POLLINATION_API_TOKEN}`, {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': POLLINATION_API_TOKEN,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    });
+                    const imageUrl = await generateImageWithPollinations(
+                        prompt,
+                        document.getElementById('imageAspectRatio').value,
+                        document.getElementById('imageStyle').value
+                    );
 
-                    if (!response.ok) {
-                        const errorText = await response.text();
-                        throw new Error(`API Error ${response.status}: ${errorText || 'Failed to generate audio.'}`);
-                    }
+                    // Directly handle the successful response
+                    const img = document.getElementById('generatedImage');
+                    img.src = imageUrl;
+                    img.alt = prompt;
+                    document.getElementById('imagePlaceholder').style.display = 'none';
+                    document.getElementById('imageResultContainer').classList.remove('hidden');
+                    document.getElementById('downloadImageBtn').onclick = () => downloadImage(img.src, `techgen-ai-image-${Date.now()}.png`);
                     
-                    const audioBlob = await response.blob();
-                    if (audioBlob.type !== 'audio/mpeg') {
-                        throw new Error('API did not return a valid audio file. Please check your input.');
-                    }
-                    
-                    const audioUrl = URL.createObjectURL(audioBlob);
-                    
-                    const audioElement = document.getElementById('generatedAudio');
-                    audioElement.src = audioUrl;
-
-                    placeholder.classList.add('hidden');
-                    resultContainer.classList.remove('hidden');
-                    
-                    document.getElementById('downloadAudioBtn').onclick = () => {
-                         downloadBlob(audioBlob, `techgen-audio-${Date.now()}.mp3`);
-                    };
-
-                    showAlert('Audio generated successfully!', 'success');
+                    showAlert('Image generated successfully!', 'success');
                     incrementFeatureUsage('imageGen');
 
-                } catch (err) { 
-                    showAlert(`Error: ${err.message}`, 'error');
+                } catch (err) {
+                    showAlert(`Image generation failed: ${err.message}`, 'error', 8000);
                 } finally {
                     this.disabled = false;
                     spinner.classList.add('hidden');
                     resumeInactivityTimer();
                 }
             });
+            // <<< CHANGE END >>>
         }
         
+        // --- Other listeners unchanged ---
         const translateTextBtn = document.getElementById('translateTextBtn');
         if (translateTextBtn) { 
             translateTextBtn.addEventListener('click', async function() {
